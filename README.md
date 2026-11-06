@@ -10,10 +10,10 @@ Neste guia, **Claude significa Claude Code**, o agente de desenvolvimento. A ins
 
 Requisitos: Git, Node.js 20 ou superior e Codex ou Claude Code instalado. Para repositório privado, cada colega precisa ter acesso e autenticação GitHub configurados. As skills não exigem `npm install`.
 
-Substitua `SEU_USUARIO` pelo proprietário que publicou o repositório adaptado da equipe:
+Clone o [repositório privado da equipe](https://github.com/MuriloBezChleba/skills-contratos) com uma conta que tenha acesso:
 
 ```powershell
-gh repo clone SEU_USUARIO/skills-contratos
+gh repo clone MuriloBezChleba/skills-contratos
 cd skills-contratos
 ```
 
@@ -136,7 +136,7 @@ O script cria `skills-contratos` **privado** na conta autenticada, acrescenta o 
 node scripts/publish-team.mjs --owner SUA_ORGANIZACAO --repository skills-contratos
 ```
 
-Se o repositório ou o remoto já existir, revise o destino antes de continuar. Não há force push nem substituição de repositório existente. Após publicar, conceda acesso ao grupo nas configurações do GitHub e substitua `SEU_USUARIO` neste README. O script não adiciona colaboradores sem seus usuários terem sido informados.
+Este pacote já está publicado em `MuriloBezChleba/skills-contratos`, com branch padrão `main`. O script serve para criar outra distribuição; se o repositório ou o remoto já existir, revise o destino antes de continuar. Não há force push nem substituição de repositório existente. Para compartilhar, conceda acesso ao grupo nas configurações do GitHub. O script não adiciona colaboradores sem seus usuários terem sido informados.
 
 ## Verificação
 

@@ -44,4 +44,4 @@ node scripts/sync-plugin-version.mjs --check
 claude plugin validate . --strict
 ```
 
-Backups locais em .contract-backups/ estão ignorados pelo Git. Alterações não foram commitadas nem publicadas. O remote origin ainda aponta para o upstream: para compartilhar a adaptação, use um repositório ou fork seu e verifique o destino antes do push.
+Backups locais em .contract-backups/ estão ignorados pelo Git. A adaptação foi commitada e publicada no repositório privado https://github.com/MuriloBezChleba/skills-contratos, com branch padrão main. O remote team aponta para essa distribuição, enquanto origin preserva o upstream. Integrantes precisam de acesso concedido pelo proprietário; nenhuma pessoa foi convidada automaticamente.

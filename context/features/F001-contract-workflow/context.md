@@ -12,22 +12,22 @@ Adaptação do núcleo contratual e do contexto das 29 skills promovidas. Manife
 
 ## Verificações
 
-Ver evidence.md. Resultados locais não representam aprovação de uma revisão commitada.
+Ver evidence.md. Renovar evidências formais na revisão que inclui o endereço real da distribuição.
 
 ## Hipóteses e pendências
 
-Alterações locais ainda sem commit e push. Verificar o destino remoto antes de compartilhar.
+Publicação confirmada em https://github.com/MuriloBezChleba/skills-contratos, privado, com branch padrão main. O proprietário ainda precisa conceder acesso às pessoas da equipe, cujos usuários não foram informados.
 
 ## Próximo passo
 
-Revisar o diff e executar os testes de integração. Quando autorizado, registrar commit, renovar evidências da revisão e publicar no repositório do usuário.
+Conferir as verificações da revisão publicada. A equipe pode seguir o README para instalar no Codex e no Claude Code.
 
 ## Local validation results
 
-13 source-package tests and 5 clone integration tests passed. Structural context validation and plugin version checks passed. Plugin validation passed with one warning: the upstream root CLAUDE.md is not loaded as plugin project context; explicit plugin --strict fails on this warning. Shared context rules are included in every promoted SKILL.md. These results concern uncommitted local files; formal criterion evidence remains pending until a committed revision is verified. No push occurred.
+The source package passed 13 tests; clone tests now cover integration, installation and publication planning. Plugin version checks passed. Plugin validation passed with one warning: the upstream root CLAUDE.md is not loaded as plugin project context; explicit plugin --strict fails on this warning. Shared context rules are included in every promoted SKILL.md. Formal criterion evidence identifies the evaluated commit separately.
 
 ## Team distribution
 
 README.md now explains installation in Codex and Claude Code. scripts/install-contract-skills.mjs installs all promoted skills and project tools, with preview and backup for updates. scripts/publish-team.mjs prepares private publication through the caller's GitHub CLI session, preserving origin. The publisher uses Node.js so it does not require changing Windows PowerShell execution policy.
 
-Publication is currently blocked because this executor cannot read C:/Users/muril/AppData/Roaming/GitHub CLI/config.yml (access denied). No credentials were copied or exposed. The maintainer can execute the publication script in their authenticated terminal after reviewing the commit. The repository name defaults to skills-contratos; team access must be granted after creation.
+The previous authentication-access blocker was resolved after the user updated session permissions. GitHub CLI authenticated as MuriloBezChleba and created the private repository skills-contratos. Both main and feature/F001-contract-workflow were pushed, and the default branch and private visibility were verified with gh repo view. No credentials were copied or exposed; origin was preserved.
