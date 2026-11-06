@@ -4,6 +4,10 @@
 
 It changes the environment, not the code. Take the bug the agent shipped, the file it needed twenty [tool calls](https://www.aihero.dev/ai-coding-dictionary/tool-call) to find, or the rule the reviewer missed. `retro` does not fix any of them directly. It asks what in the repo let them happen, and proposes the check, pointer, or standard that prevents them next time. It also only proposes. Nothing changes until you pick a candidate.
 
+## Local contract adaptation
+
+In this checkout, project knowledge is canonical in context/, feature documents in context/features/<feature>/ and model/module contracts in contracts/. Use the same feature branch for implementation and supporting work. These local paths and the feature contract take precedence over legacy glossary, scratch, temporary handoff and integration-branch conventions below. Stateless use outside a repository remains available. Read-only work reports missing context without creating files. Remote tracker publication, commits, pushes and delegation require applicable authorization. The local router describes the adapted flow.
+
 ## When to reach for it
 
 You invoke this by typing `/retro`, and the agent won't reach for it on its own.

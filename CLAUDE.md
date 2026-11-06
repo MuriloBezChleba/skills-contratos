@@ -31,3 +31,7 @@ Every skill that dispatches a subagent says to start it with a fresh context win
 ### Triage labels
 
 Canonical names, unchanged. See `docs/agents/triage-labels.md`. Issues are judged against [`SCOPE.md`](./SCOPE.md).
+
+## Local contract workflow
+
+Project and feature context uses CONTRATOS.md and CONTRACT-WORKFLOW.md. Promoted skills share context/ and contracts/ as canonical project artifacts. Feature work uses feature/<id>-<name>, and documentation accompanies code in the same PR. Never imply GitHub publication from a local save.

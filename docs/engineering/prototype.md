@@ -4,6 +4,10 @@
 
 Throwaway is a constraint on how the code is *written*, not a promise to destroy it. No tests, no error handling beyond what makes it run, no abstractions, no persistence, because none of that helps you learn the one thing you're trying to learn. Two things survive. The answer goes into the real code, and the prototype goes onto a branch out of main as evidence for the answer.
 
+## Local contract adaptation
+
+In this checkout, project knowledge is canonical in context/, feature documents in context/features/<feature>/ and model/module contracts in contracts/. Use the same feature branch for implementation and supporting work. These local paths and the feature contract take precedence over legacy glossary, scratch, temporary handoff and integration-branch conventions below. Stateless use outside a repository remains available. Read-only work reports missing context without creating files. Remote tracker publication, commits, pushes and delegation require applicable authorization. The local router describes the adapted flow.
+
 ## When to reach for it
 
 Type `/prototype`, or the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) reaches for it automatically when a task fits.

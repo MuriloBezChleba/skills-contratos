@@ -4,6 +4,10 @@
 
 The [agent](https://www.aihero.dev/ai-coding-dictionary/agent) writes the script; it never runs it. You do, on your own machine. A wizard is a program, not a list of instructions. The script runs each step in order and keeps the values you enter. Your part is to click, paste, and press Enter.
 
+## Local contract adaptation
+
+In this checkout, project knowledge is canonical in context/, feature documents in context/features/<feature>/ and model/module contracts in contracts/. Use the same feature branch for implementation and supporting work. These local paths and the feature contract take precedence over legacy glossary, scratch, temporary handoff and integration-branch conventions below. Stateless use outside a repository remains available. Read-only work reports missing context without creating files. Remote tracker publication, commits, pushes and delegation require applicable authorization. The local router describes the adapted flow.
+
 ## When to reach for it
 
 You can type `/wizard`, and the agent can also reach for it on its own. When it hits a step you have to take (a key it can't mint, a dashboard it can't click), it builds you a wizard instead of writing the instructions into the chat, where they scroll away.

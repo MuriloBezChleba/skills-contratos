@@ -6,6 +6,10 @@ Its default fix is to delete, not to explain. Ask an agent to write instructions
 
 It was called `writing-great-skills` until v1.1. The new name fits what it always was. Almost none of it is specific to skills. The skill-only mechanics (frontmatter, the model- versus user-invoked choice, router skills) live in a linked `SKILL-MECHANICS.md` that you read only when the document in front of you is a skill.
 
+## Local contract adaptation
+
+In this checkout, project knowledge is canonical in context/, feature documents in context/features/<feature>/ and model/module contracts in contracts/. Use the same feature branch for implementation and supporting work. These local paths and the feature contract take precedence over legacy glossary, scratch, temporary handoff and integration-branch conventions below. Stateless use outside a repository remains available. Read-only work reports missing context without creating files. Remote tracker publication, commits, pushes and delegation require applicable authorization. The local router describes the adapted flow.
+
 ## When to reach for it
 
 Type `/writing-for-agents`, or the agent reaches for it on its own when you're creating or editing a skill, or modifying `AGENTS.md` or `CLAUDE.md`.

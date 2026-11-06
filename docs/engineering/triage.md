@@ -6,6 +6,10 @@ It is only for issues **you didn't create**. That means raw bug reports, incomin
 
 It also differs from labelling by hand because it recommends and then waits. It gives you its category and state call with reasoning, plus what it found in the codebase, and applies nothing until you tell it to.
 
+## Local contract adaptation
+
+In this checkout, project knowledge is canonical in context/, feature documents in context/features/<feature>/ and model/module contracts in contracts/. Use the same feature branch for implementation and supporting work. These local paths and the feature contract take precedence over legacy glossary, scratch, temporary handoff and integration-branch conventions below. Stateless use outside a repository remains available. Read-only work reports missing context without creating files. Remote tracker publication, commits, pushes and delegation require applicable authorization. The local router describes the adapted flow.
+
 ## When to reach for it
 
 You invoke this by typing `/triage` and then describing what you want in plain language. The [agent](https://www.aihero.dev/ai-coding-dictionary/agent) won't reach for it on its own. Examples: "Show me anything that needs my attention", "let's look at #42", "move #42 to ready-for-agent".

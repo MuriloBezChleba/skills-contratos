@@ -1,0 +1,3 @@
+interface:
+  display_name: "Define Module"
+  short_description: "Define module interfaces and behavior contracts"

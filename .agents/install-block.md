@@ -1,5 +1,9 @@
 # The canonical install block
 
+## Local team adaptation
+
+For this checkout, the top-level README documents the supported team route: clone the team's adapted repository, then run `node scripts/install-contract-skills.mjs --project <application> --agent codex|claude|both --write`. Codex uses `.agents/skills/`; Claude Code uses `.claude/skills/`. The installer also provides the project-local contract tools and specification. Copies and updates are manual and versioned with the application. Do not direct this team's users to install the original marketplace package to obtain the local adaptation. The upstream blocks below are preserved as historical distribution references, not the installation instructions for this adaptation.
+
 One install story, one wording. `README.md`, `.changeset/*`, and every page under `docs/` must say **this** and nothing else. Change it here first, then propagate.
 
 ## Managed installs first

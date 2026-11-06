@@ -1,0 +1,3 @@
+interface:
+  display_name: "Define Model"
+  short_description: "Define domain invariants and model contracts"

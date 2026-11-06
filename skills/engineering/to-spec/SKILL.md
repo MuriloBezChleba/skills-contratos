@@ -1,75 +1,55 @@
 ---
 name: to-spec
-description: "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed."
+description: "Transforma o pedido e a conversa em contrato de feature versionado, com requisitos e aceite rastreáveis."
 disable-model-invocation: true
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user; just synthesize what you already know.
+## Shared contract context
 
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+When working in a project repository, read CONTRATOS.md, context/README.md, context/project.md, context/glossary.md and the active feature's contract.md and context.md before acting. Project knowledge lives in context/; feature knowledge lives in context/features/<feature>/; shared model and module contracts live in contracts/. These locations take precedence over legacy glossary, scratch, ADR and temporary-file conventions elsewhere in this skill or its supporting references.
 
-## Process
+Use node contract-tools/scripts/contracts.mjs docs --root . to create missing project documentation without overwriting existing files. Start a new feature with init on feature/<id>-<name>; docs alone does not create a valid feature contract. Reuse the active feature branch for its tickets, research and prototypes. Do not create a second integration or prototype branch for that feature by default. If there is no repository or feature, keep standalone work standalone; do not invent a feature. For read-only tasks, report missing documentation instead of writing it.
 
-1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
+Keep one canonical glossary at context/glossary.md and durable decisions under context/decisions/. Migrate existing glossary or ADR content deliberately, preserving links and history; do not silently replace an existing glossary with an empty file. Feature tickets, research and prototype decisions belong under context/features/<feature>/ and must reference the contract and acceptance IDs. An external tracker can mirror or link this source when authorized, but is not a prerequisite for local contract work. Never create issues in the upstream skills repository just because its origin is configured.
 
-2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+Update the relevant project and feature documentation when knowledge changes. Preserve facts, assumptions, evidence and next steps distinctly. Do not declare completion without recorded evidence and structural validation. Include code, contracts and context in the same feature PR; check that documentation is neither ignored nor left outside Git. Saving, committing and pushing are separate actions: only claim GitHub sharing after an authorized, verified push. Do not publish, merge, commit or delegate merely because another section describes that as a default; use existing user authorization. Authorized subagents must start with a fresh context window and receive pointers to these versioned artifacts.
 
-Check with the user that these seams match their expectations.
+# Contrato de especificação
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+## Contexto compartilhado e versionado
 
-<spec-template>
+Antes de executar, leia context/README.md, context/project.md, context/glossary.md e a documentação da feature ativa. Todas as skills deste pacote usam os mesmos diretórios canônicos: context/ para projeto e decisões, context/features/<feature>/ para a feature e contracts/ para modelos e módulos.
 
-## Problem Statement
+Se a estrutura estiver ausente, use o comando docs do CLI local para criar apenas índices e documentos de projeto ausentes, preservando conteúdo existente. Use init para iniciar uma feature nova na sua própria branch; docs não substitui o contrato nem cria uma feature válida sozinho. Em revisão somente leitura, reporte ausências sem criar arquivos.
 
-The problem that the user is facing, from the user's perspective.
+Ao alterar conhecimento compartilhado, atualize os documentos correspondentes na mesma branch e relacione os caminhos no contexto da feature. Atualize project.md, glossary.md e ADRs somente quando houver nova informação aplicável ao projeto inteiro. Não crie cópias concorrentes em diretório temporário ou em um segundo diretório docs/.
 
-## Solution
+Antes da entrega, confira documentação ausente, ignorada ou ainda não adicionada ao Git. Código, contratos e contexto devem acompanhar o mesmo PR. Arquivo salvo não significa commit; commit local não significa disponível no GitHub. Commit e push exigem autorização aplicável. Informe o que falta para compartilhar, sem afirmar publicação que não ocorreu.
 
-The solution to the problem, from the user's perspective.
+## Entradas
 
-## User Stories
+Pedido atual, fontes disponíveis, `context/project.md`, glossário e ADRs relevantes. Leia `CONTRATOS.md` da raiz do projeto. Se não estiver instalado, informe a dependência ausente; não improvise outro formato.
 
-A LONG, numbered list of user stories. Each user story should be in the format of:
+## Precondições
 
-1. As an <actor>, I want a <feature>, so that <benefit>
+Identificar a feature e sua base. Respeitar a intenção mais recente do usuário. Não exigir uma nova aprovação para trabalho já autorizado. Ausências relevantes tornam apenas o trecho dependente pendente.
 
-<user-story-example>
-1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
-</user-story-example>
+## Execução
 
-This list of user stories should be extremely extensive and cover all aspects of the feature.
+1. Inspecione o projeto e escolha ID `F<numero>` e slug únicos.
+2. Use `node contract-tools/scripts/contracts.mjs init --root . --feature F001-nome --owner <responsavel-real> --base main` quando as ferramentas estiverem instaladas. No pacote fonte, o CLI fica em `scripts/contracts.mjs`. O comando exige árvore limpa e cria a branch. Se já estiver na branch correta, reutilize os documentos sem sobrescrever. Se houver alterações, preserve-as e explique o impedimento a criar uma nova branch automaticamente.
+3. Preencha `contract.md`: problema, resultado, escopo, exclusões, fontes, requisitos `REQ-F001-001`, aceite `AC-F001-001`, dependências exatas, restrições, decisões e dúvidas. Os dados estruturados do cabeçalho e a explicação em Markdown devem concordar.
+4. Use hipóteses identificadas; não invente fontes, owner ou aprovação. Defina cenários e resultado observável por critério. Referencie modelos e módulos canônicos em `contracts/`.
+5. Registre estado e próximo passo em `context.md`; cada critério começa com evidência `pending`. Atualize versões quando mudar obrigações e descreva incompatibilidades.
 
-## Implementation Decisions
+## Saídas
 
-A list of implementation decisions that were made. This can include:
+Branch `feature/F001-nome`, contrato da feature, contexto, evidências e lock de skills em `context/features/F001-nome/`. A especificação canônica fica no Git; tracker, quando autorizado, recebe um link ou espelho identificado como tal.
 
-- The modules that will be built/modified
-- The interfaces of those modules that will be modified
-- Technical clarifications from the developer
-- Architectural decisions
-- Schema changes
-- API contracts
-- Specific interactions
+## Verificação
 
-Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
+Execute o validador para a feature. Cada requisito deve ter aceite; dependências devem existir nas versões declaradas. Registre esta skill e os recursos usados com o comando `lock`.
 
-Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.
+## Encerramento
 
-## Testing Decisions
-
-A list of testing decisions that were made. Include:
-
-- A description of what makes a good test (only test external behavior, not implementation details)
-- Which modules will be tested
-- Prior art for the tests (i.e. similar types of tests in the codebase)
-
-## Out of Scope
-
-A description of the things that are out of scope for this spec.
-
-## Further Notes
-
-Any further notes about the feature.
-
-</spec-template>
+Reporte contrato criado, branch e pendências. Só marque `ready` quando obrigações e dependências estiverem definidas. Não publique em tracker, faça commit ou push apenas por ter concluído a especificação.
