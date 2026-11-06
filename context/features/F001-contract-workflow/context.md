@@ -28,6 +28,6 @@ Revisar o diff e executar os testes de integração. Quando autorizado, registra
 
 ## Team distribution
 
-README.md now explains installation in Codex and Claude Code. scripts/install-contract-skills.mjs installs all promoted skills and project tools, with preview and backup for updates. Three additional installer tests passed, bringing clone tests to eight. scripts/publish-team.ps1 prepares private publication through the caller's GitHub CLI session, preserving origin.
+README.md now explains installation in Codex and Claude Code. scripts/install-contract-skills.mjs installs all promoted skills and project tools, with preview and backup for updates. scripts/publish-team.mjs prepares private publication through the caller's GitHub CLI session, preserving origin. The publisher uses Node.js so it does not require changing Windows PowerShell execution policy.
 
 Publication is currently blocked because this executor cannot read C:/Users/muril/AppData/Roaming/GitHub CLI/config.yml (access denied). No credentials were copied or exposed. The maintainer can execute the publication script in their authenticated terminal after reviewing the commit. The repository name defaults to skills-contratos; team access must be granted after creation.

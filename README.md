@@ -127,13 +127,13 @@ O mantenedor precisa de GitHub CLI autenticado. Após revisar, testar e registra
 
 ```powershell
 gh auth status
-powershell -File scripts/publish-team.ps1
+node scripts/publish-team.mjs
 ```
 
 O script cria `skills-contratos` **privado** na conta autenticada, acrescenta o remoto `team`, envia o conteúdo para `main` e para a branch de feature e verifica o resultado. Preserva o remoto `origin`. Para uma organização em que você tenha permissão:
 
 ```powershell
-powershell -File scripts/publish-team.ps1 -Owner SUA_ORGANIZACAO -Repository skills-contratos
+node scripts/publish-team.mjs --owner SUA_ORGANIZACAO --repository skills-contratos
 ```
 
 Se o repositório ou o remoto já existir, revise o destino antes de continuar. Não há force push nem substituição de repositório existente. Após publicar, conceda acesso ao grupo nas configurações do GitHub e substitua `SEU_USUARIO` neste README. O script não adiciona colaboradores sem seus usuários terem sido informados.
@@ -141,7 +141,7 @@ Se o repositório ou o remoto já existir, revise o destino antes de continuar. 
 ## Verificação
 
 ```powershell
-node --test contract-tools/tests/integration.test.mjs contract-tools/tests/install.test.mjs
+node --test contract-tools/tests/integration.test.mjs contract-tools/tests/install.test.mjs contract-tools/tests/publish.test.mjs
 node scripts/sync-plugin-version.mjs --check
 ```
 
