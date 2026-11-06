@@ -1,7 +1,7 @@
 ---
 {
-  "state": "verifying",
-  "last_verified_commit": null,
+  "state": "done",
+  "last_verified_commit": "31b264169547fb2ae6fe0e6870158b906cab1ed6",
   "uncommitted_changes": true
 }
 ---
